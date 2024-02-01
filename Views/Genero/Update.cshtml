@@ -1,0 +1,34 @@
+﻿@model Livraria.Models.Domain.Genero
+@{
+    ViewData["Title"] = "Add";
+}
+
+<div class="container pt-5">
+    <div class="row">
+        <div class="col-md-6">
+            <h3>Alterar Género</h3>
+            <form asp-action="Update" method="post">
+                <input type="hidden" asp-for="Id"/>
+                <div class="form-group">
+                    <label asp-for="Nome">Género *</label>
+                    <input type="text" class="form-control" asp-for="Nome"/>
+                    <span asp-validation-for="Nome" class="text-danger"></span>
+                </div>
+
+                @if (TempData["msg"] != null)
+                {
+                    <div class="form-group">
+                        @TempData["msg"]
+                    </div>
+                }
+                <div class="form-group pt-3">
+                    <button type="submit" class="btn btn-dark">
+                        <i class="bi bi-save"></i>
+                        Salvar
+                    </button>
+                    <a asp-action="GetAll" class="btn btn-primary"><i class="bi bi-list"></i>Registos</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
